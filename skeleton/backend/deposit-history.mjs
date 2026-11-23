@@ -3,7 +3,6 @@
  * 仅保留模块导出与接口签名。
  */
 
-
 import {Fault} from './domain.mjs';
 
 export function depositHistory(store,formal,type,id){

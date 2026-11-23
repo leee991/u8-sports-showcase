@@ -3,7 +3,6 @@
  * 仅保留模块导出与接口签名。
  */
 
-
 import {createHmac,randomBytes,timingSafeEqual} from 'node:crypto';
 import {qrImage} from './vendor/admin-qr.mjs';
 import {Fault,checkPassword,digest,token} from './domain.mjs';

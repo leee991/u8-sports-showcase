@@ -3,7 +3,6 @@
  * 仅保留模块导出与接口签名。
  */
 
-
 import {randomBytes} from 'node:crypto';
 import {Store,Fault,now,digest} from './domain.mjs';
 import {KgIntegration} from './kg-integration.mjs';
@@ -25,6 +24,3 @@ export class KgQa {
   }
 
 }
-
-// Discovered route endpoints in this module (read-only contract summary):
-//   - /api/admin/kg-qa

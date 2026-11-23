@@ -3,7 +3,6 @@
  * 仅保留模块导出与接口签名。
  */
 
-
 import {createHash,randomBytes} from 'node:crypto';
 import {NEAPI_CATALOG_PLATFORMS} from './neapi-capabilities.mjs';
 
@@ -25,7 +24,7 @@ export function suggestNeMappings(u8Catalog,remoteCatalog){
 const fail=(code,vendorCode)=>{
   // 内部业务实现略
   throw new Error("not implemented");
-};
+}
 
 export class NeApiReadError extends Error{
   constructor(code,vendorCode=null){
@@ -37,7 +36,3 @@ export class NeApiReadError extends Error{
 
 export class NeApiReadOnlyClient{
 }
-
-// Discovered route endpoints in this module (read-only contract summary):
-//   - /api/server/gameCode
-//   - /api/server/quota

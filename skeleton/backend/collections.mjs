@@ -3,7 +3,6 @@
  * 仅保留模块导出与接口签名。
  */
 
-
 import {exchangeRate} from './exchange-rate.mjs';
 import {ensureInvoiceRates,invoiceRate,snapshotRate} from './invoice-rate.mjs';
 import {Fault,now,token,digest,required} from './domain.mjs';
@@ -17,7 +16,7 @@ export function imageData(body){
 const integer=(v,min,max,label)=>{
   // 内部业务实现略
   throw new Error("not implemented");
-};
+}
 
 export class Collections {
   constructor(store,{clock=Date.now}={}){
@@ -26,9 +25,3 @@ export class Collections {
   }
 
 }
-
-// Discovered route endpoints in this module (read-only contract summary):
-//   - /api/admin/
-//   - /api/admin/collection-settings
-//   - /api/admin/collection-upload
-//   - /api/member/collection-options

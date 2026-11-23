@@ -3,7 +3,6 @@
  * 仅保留模块导出与接口签名。
  */
 
-
 import {publicImage} from './public-media.mjs';
 import {Fault,clean,required,now} from './domain.mjs';
 import {referenceAdminPages,referenceAdminGroups} from '../shared/reference-admin-navigation.mjs';
@@ -16,8 +15,3 @@ export class Management{
   }
 
 }
-
-// Discovered route endpoints in this module (read-only contract summary):
-//   - /api/admin/management/feedback
-//   - /api/admin/management/parameters/batch-remove
-//   - /api/member/feedback

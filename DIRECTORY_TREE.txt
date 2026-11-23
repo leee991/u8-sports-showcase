@@ -1,4 +1,4 @@
-# U8 综合业务平台生态 — Module Directory Tree (Synced 2026-11-23)
+# U8 综合业务平台 — Module Directory Tree (Synced 2026-11-23)
 
 .
   88-u8-protection.conf
@@ -11,9 +11,7 @@
   entry-fpm.conf
   index.html
   nginx.conf
-  package.json
   vite.config.mjs
-  前后台对照与待接入清单.md
   backend/
     activity-service.mjs
     actor-freshness.mjs
@@ -30,7 +28,6 @@
     agent-profit-settings.mjs
     agent-profit-settlement.mjs
     agent-turnover-report.mjs
-    api.mjs
     auth-captcha-image.mjs
     auth-policy.mjs
     avatar-seed.json
@@ -60,7 +57,6 @@
     currency-origins.mjs
     daily-checkin.mjs
     daily-rebate-scheduler.mjs
-    defaults.mjs
     deposit-bonus-withdrawal.mjs
     deposit-expiry.mjs
     deposit-history.mjs
@@ -68,8 +64,6 @@
     deposit-payment-notices.mjs
     deposit-queue.mjs
     domain.mjs
-    drawing-push.mjs
-    drawing-source.mjs
     ebpay-deposits.mjs
     ebpay-payouts.mjs
     ebpay-reverse.mjs
@@ -120,7 +114,6 @@
     member-public-ids.mjs
     member-transaction-records.mjs
     member-turnover-admin.mjs
-    migrate-drawing.mjs
     neapi-capabilities.mjs
     neapi-catalog.mjs
     neapi-cost-rates.mjs
@@ -129,7 +122,6 @@
     neapi-readonly.mjs
     operations-reference-v2.mjs
     operations.mjs
-    package.json
     payment-methods.mjs
     payout-bindings.mjs
     performance-indexes.mjs
@@ -150,11 +142,7 @@
     security-contacts.mjs
     server.mjs
     session-policy.mjs
-    source-panels.mjs
-    source.mjs
     sql-statements.mjs
-    static.mjs
-    store.mjs
     supplier-precision.mjs
     test-lottery-wallet.mjs
     trial-canada-domain.mjs
@@ -162,7 +150,6 @@
     trial-canada.mjs
     trial-provider-verified.json
     trial-wallet.mjs
-    u8-admin-auth.mjs
     venue-management.mjs
     vip-automation.mjs
     wallet-consolidation.mjs
@@ -229,6 +216,21 @@
     u8-api.service
     u8cny-http.conf
     u8cny-https.conf
+  lottery-three-game/
+    backend/
+      api.mjs
+      defaults.mjs
+      domain.mjs
+      drawing-push.mjs
+      drawing-source.mjs
+      migrate-drawing.mjs
+      package.json
+      server.mjs
+      source-panels.mjs
+      source.mjs
+      static.mjs
+      store.mjs
+      u8-admin-auth.mjs
   scripts/
     compare-all.py
     compare-mobile.py
@@ -320,4 +322,4 @@
       test_sandbox.py
 
 Total clean source/config files: 305
-Language / Extension breakdown: .mjs: 173, .html: 31, .js: 17, .json: 16, .jsx: 13, .conf: 10, .css: 10, .md: 7, .svg: 7, .py: 7, .service: 5, .txt: 4
+Language / Extension breakdown: .mjs: 175, .html: 31, .js: 17, .json: 15, .jsx: 13, .conf: 10, .css: 10, .svg: 7, .py: 7, .md: 6, .service: 5, .txt: 4

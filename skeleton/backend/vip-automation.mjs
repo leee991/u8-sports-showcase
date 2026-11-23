@@ -3,7 +3,6 @@
  * 仅保留模块导出与接口签名。
  */
 
-
 import {Fault,currency,digest,checkPassword,required} from './domain.mjs';
 import {freshFinancialActor} from './actor-freshness.mjs';
 import {FinancialReports} from './financial-reports.mjs';
@@ -17,6 +16,3 @@ export class VipAutomation{
   }
 
 }
-
-// Discovered route endpoints in this module (read-only contract summary):
-//   - /api/admin/operations/vip-automation

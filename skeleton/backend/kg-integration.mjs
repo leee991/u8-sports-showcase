@@ -3,7 +3,6 @@
  * 仅保留模块导出与接口签名。
  */
 
-
 import {createHmac,timingSafeEqual} from 'node:crypto';
 import {readFileSync} from 'node:fs';
 import {Fault,now,token,digest,clean,required,currency} from './domain.mjs';
@@ -17,7 +16,7 @@ export function kgSignature(secret,timestamp,nonce,raw,path){
 const integer=(v,min,max,label)=>{
   // 内部业务实现略
   throw new Error("not implemented");
-};
+}
 
 export class KgIntegration{
   constructor(store,config={}){
@@ -26,11 +25,3 @@ export class KgIntegration{
   }
 
 }
-
-// Discovered route endpoints in this module (read-only contract summary):
-//   - /api/admin/kg-
-//   - /api/admin/kg-accounts
-//   - /api/admin/kg-debug/cancel
-//   - /api/admin/kg-games
-//   - /api/admin/kg-preview
-//   - /api/integrations/kg/

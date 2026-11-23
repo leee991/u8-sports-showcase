@@ -3,7 +3,6 @@
  * 仅保留模块导出与接口签名。
  */
 
-
 import {TrialCanada} from './trial-canada.mjs';
 import {readFileSync} from 'node:fs';
 import {Fault,now} from './domain.mjs';
@@ -20,13 +19,3 @@ export class TrialWallet{
   }
 
 }
-
-// Discovered route endpoints in this module (read-only contract summary):
-//   - /api/admin/
-//   - /api/admin/trial
-//   - /api/admin/trial/adjust
-//   - /api/member/trial
-//   - /api/member/trial/canada
-//   - /api/member/trial/canada/play
-//   - /api/member/trial/provider-launch
-//   - /api/member/trial/providers

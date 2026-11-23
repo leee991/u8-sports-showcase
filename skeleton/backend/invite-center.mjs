@@ -3,19 +3,18 @@
  * 仅保留模块导出与接口签名。
  */
 
-
 import {Fault,required,now} from './domain.mjs';
 import {publicImage} from './public-media.mjs';
 
 const amount=(v,code)=>{
   // 内部业务实现略
   throw new Error("not implemented");
-};
+}
 
 const decimal=(n,code)=>{
   // 内部业务实现略
   throw new Error("not implemented");
-};
+}
 
 export class InviteCenter{
   constructor(s,benefits){
@@ -24,6 +23,3 @@ export class InviteCenter{
   }
 
 }
-
-// Discovered route endpoints in this module (read-only contract summary):
-//   - /api/admin/invite-center

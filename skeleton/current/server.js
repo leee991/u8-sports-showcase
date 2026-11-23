@@ -3,7 +3,6 @@
  * 仅保留模块导出与接口签名。
  */
 
-
 const http = require('node:http');
 const fs = require('node:fs');
 const path = require('node:path');
@@ -72,37 +71,3 @@ class ApiError extends Error {
   }
 
 }
-
-// Discovered route endpoints in this module (read-only contract summary):
-//   - /api/agents
-//   - /api/auth/
-//   - /api/auth/login
-//   - /api/auth/logout
-//   - /api/auth/mfa/
-//   - /api/auth/mfa/cancel
-//   - /api/auth/mfa/enroll
-//   - /api/auth/mfa/verify
-//   - /api/bootstrap
-//   - /api/conversations
-//   - /api/events
-//   - /api/health
-//   - /api/ip-blocks
-//   - /api/ip-blocks/remove
-//   - /api/presence
-//   - /api/push/
-//   - /api/push/config
-//   - /api/push/subscribe
-//   - /api/push/test
-//   - /api/push/unsubscribe
-//   - /api/settings/welcome
-//   - /api/visitor/
-//   - /api/visitor/draft
-//   - /api/visitor/events
-//   - /api/visitor/messages
-//   - /api/visitor/presence
-//   - /api/visitor/read
-//   - /api/visitor/session
-//   - /api/visitor/start
-//   - /api/visitor/upload
-
-// Exported symbols: createServer

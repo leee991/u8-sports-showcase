@@ -3,14 +3,12 @@
  * 仅保留模块导出与接口签名。
  */
 
-
 import {createHash,timingSafeEqual} from 'node:crypto';
 import {readFileSync,lstatSync} from 'node:fs';
 import {join} from 'node:path';
 import {Fault,now} from './domain.mjs';
 import {clientAddress} from './auth-policy.mjs';
 import {freshFinancialActor} from './actor-freshness.mjs';
-export const EBPAY_REVERSE_PATH='/api/payment/ebpay/withdraw-query';
 
 export function ebpayReverseSignature(data,key){
   // 内部业务实现略
@@ -34,6 +32,3 @@ export class EbpayReverse{
   }
 
 }
-
-// Discovered route endpoints in this module (read-only contract summary):
-//   - /api/payment/ebpay/withdraw-query

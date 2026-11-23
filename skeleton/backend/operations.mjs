@@ -3,7 +3,6 @@
  * 仅保留模块导出与接口签名。
  */
 
-
 import {checkWithdrawalLimits} from './withdrawal-limits.mjs';
 import {legacyRebateEvidence} from './rebate-sources.mjs';
 import {ensureAgentPlanArchive,archiveAgentPlan,planArchived} from './agent-plan-archive.mjs';
@@ -19,7 +18,7 @@ export function reportRange(q){
 const integer=(n,min,max,label)=>{
   // 内部业务实现略
   throw new Error("not implemented");
-};
+}
 
 export class Operations{
   constructor(s){
@@ -28,6 +27,3 @@ export class Operations{
   }
 
 }
-
-// Discovered route endpoints in this module (read-only contract summary):
-//   - /api/admin/operations/

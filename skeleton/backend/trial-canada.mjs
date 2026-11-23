@@ -3,7 +3,6 @@
  * 仅保留模块导出与接口签名。
  */
 
-
 import {canadianAdmission} from './canada-admission.mjs';
 
 async function readLocal(game){
@@ -18,7 +17,3 @@ export class TrialCanada{
   }
 
 }
-
-// Discovered route endpoints in this module (read-only contract summary):
-//   - /api/member/trial/canada
-//   - /api/member/trial/canada/play

@@ -3,7 +3,6 @@
  * 仅保留模块导出与接口签名。
  */
 
-
 import {randomBytes} from 'node:crypto';
 import {Fault,digest,checkPassword,required} from './domain.mjs';
 import {freshFinancialActor} from './actor-freshness.mjs';
@@ -17,10 +16,3 @@ export class LiveRebates{
   }
 
 }
-
-// Discovered route endpoints in this module (read-only contract summary):
-//   - /api/admin/operations/live-rebates
-//   - /api/admin/operations/live-rebates/exclude
-//   - /api/admin/operations/live-rebates/review
-//   - /api/member/live-rebates
-//   - /api/member/live-rebates/claim

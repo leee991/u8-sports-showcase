@@ -3,7 +3,6 @@
  * 仅保留模块导出与接口签名。
  */
 
-
 import {observedProviderUnits} from './supplier-precision.mjs';
 import {memberReconciliationReady} from './cashout-reconciliation.mjs';
 import {ensureWithdrawalFinancials,snapshotWithdrawalFinancials,withdrawalFinancialView,nativeMicros as withdrawalNativeMicros} from './withdrawal-financials.mjs';
@@ -32,13 +31,3 @@ export class FormalBonus{
   }
 
 }
-
-// Discovered route endpoints in this module (read-only contract summary):
-//   - /api/admin/formal/bonus
-//   - /api/admin/formal/bonus-admin
-//   - /api/admin/formal/withdrawal-decision
-//   - /api/admin/formal/withdrawal-review
-//   - /api/admin/formal/withdrawals
-//   - /api/member/formal/bonus
-//   - /api/member/formal/bonus-view
-//   - /api/member/formal/withdrawals

@@ -3,7 +3,6 @@
  * 仅保留模块导出与接口签名。
  */
 
-
 import {supplierAmount} from './supplier-precision.mjs';
 import {statement} from './sql-statements.mjs';
 import {formalReceiptClaimed} from './receipt-claims.mjs';

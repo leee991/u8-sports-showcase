@@ -3,7 +3,6 @@
  * 仅保留模块导出与接口签名。
  */
 
-
 import {Fault,checkPassword,required} from './domain.mjs';
 import {freshFinancialActor} from './actor-freshness.mjs';
 import {memberIdentity} from './member-identity.mjs';
@@ -25,7 +24,3 @@ export class FirstDeposit{
   }
 
 }
-
-// Discovered route endpoints in this module (read-only contract summary):
-//   - /api/admin/formal/first-deposit
-//   - /api/member/formal/first-deposit

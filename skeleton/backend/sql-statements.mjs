@@ -4,7 +4,6 @@
  */
 
 
-
 export function statement(db,sql){
   // 内部业务实现略
   throw new Error("not implemented");

@@ -3,7 +3,6 @@
  * 仅保留模块导出与接口签名。
  */
 
-
 import {randomUUID} from 'node:crypto';
 import {Fault,clean,required,now,digest} from './domain.mjs';
 

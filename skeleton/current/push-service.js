@@ -3,7 +3,6 @@
  * 仅保留模块导出与接口签名。
  */
 
-
 const crypto = require('node:crypto');
 const dns = require('node:dns');
 const https = require('node:https');
@@ -52,5 +51,3 @@ class PushError extends Error {
   }
 
 }
-
-// Exported symbols: createPushService, PushError, validateEndpoint, validateSubscription, isPublicAddress, createSafeLookup

@@ -3,7 +3,6 @@
  * 仅保留模块导出与接口签名。
  */
 
-
 import {agentGamingSources} from './agent-gaming-sources.mjs';
 import {agentTurnoverMember,sumAgentTurnover,publicAgentTurnover} from './agent-turnover-report.mjs';
 import {Fault,currency,clean} from './domain.mjs';
@@ -16,6 +15,3 @@ export class AgentCenter {
   }
 
 }
-
-// Discovered route endpoints in this module (read-only contract summary):
-//   - /api/member/agent-center

@@ -3,7 +3,6 @@
  * 仅保留模块导出与接口签名。
  */
 
-
 const crypto = require('node:crypto');
 
 function fail(status, message) {
@@ -58,5 +57,3 @@ class MfaError extends Error {
   }
 
 }
-
-// Exported symbols: createMfaService, MfaError, totp, encodeBase32, matchingStep, recoveryHash, CHALLENGE_LIFETIME

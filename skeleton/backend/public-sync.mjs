@@ -3,7 +3,6 @@
  * 仅保留模块导出与接口签名。
  */
 
-
 import {digest} from './domain.mjs';
 import {exchangeRate} from './exchange-rate.mjs';
 

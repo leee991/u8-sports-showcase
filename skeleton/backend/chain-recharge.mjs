@@ -3,7 +3,6 @@
  * 仅保留模块导出与接口签名。
  */
 
-
 import {Fault,checkPassword,required} from './domain.mjs';
 import {freshFinancialActor} from './actor-freshness.mjs';
 import {ChainInvoices,microText,CHAIN_VARIABLE_TERMS,CHAIN_VARIABLE_POLICY} from './chain-invoices.mjs';
@@ -11,7 +10,6 @@ import {ChainScanner} from './chain-scanner.mjs';
 import {depositLimits} from './deposit-limits.mjs';
 import {qrImage} from './vendor/admin-qr.mjs';
 import {TronDepositReader} from './chain-readers.mjs';
-export const CHAIN_TERMS=CHAIN_VARIABLE_TERMS;
 
 export class ChainRecharge{
   constructor(formal,config={}){
@@ -25,7 +23,3 @@ export class ChainRecharge{
   }
 
 }
-
-// Discovered route endpoints in this module (read-only contract summary):
-//   - /api/admin/formal/chain/
-//   - /api/member/formal/chain/

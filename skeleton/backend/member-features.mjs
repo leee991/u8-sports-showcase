@@ -3,7 +3,6 @@
  * 仅保留模块导出与接口签名。
  */
 
-
 import {manualAdjustmentMemberLedgerSource,formatManualAdjustmentHistory} from './manual-adjustment-report.mjs';
 import {formalMoneyLedgerSources,formatFormalMoneyHistory} from './member-formal-money-history.mjs';
 import {rebateDecimal} from '../shared/live-rebate-rules.mjs';
@@ -16,7 +15,6 @@ import {bindingDetails,publicBinding} from './payout-bindings.mjs';
 import {Fault,clean,required,amount,now,currency} from './domain.mjs';
 import {existsSync,readFileSync} from 'node:fs';
 import {resolve} from 'node:path';
-export const promotionCategories=['electro','live','fish','sport','turnover','withdrawal'];
 
 export function downloadLinks(store){
   // 内部业务实现略
@@ -47,16 +45,3 @@ export function adminExtraRoute({p,method,q,b,actor,store,write,send,list,permis
   // 内部业务实现略
   throw new Error("not implemented");
 }
-
-// Discovered route endpoints in this module (read-only contract summary):
-//   - /api/admin/activities
-//   - /api/admin/activity-claims
-//   - /api/admin/downloads
-//   - /api/member/activity-claims
-//   - /api/member/bindings
-//   - /api/member/messages
-//   - /api/member/profile
-//   - /api/member/records
-//   - /api/member/summary
-//   - /api/member/task-entry
-//   - /api/member/transfer

@@ -3,7 +3,6 @@
  * 仅保留模块导出与接口签名。
  */
 
-
 import {Fault,digest,now,required,checkPassword} from './domain.mjs';
 import {freshFinancialActor} from './actor-freshness.mjs';
 import {formalCashRecords} from './cash-deposit-rules.mjs';
@@ -21,6 +20,3 @@ export class FormalRebates{
   }
 
 }
-
-// Discovered route endpoints in this module (read-only contract summary):
-//   - /api/admin/operations/formal-rebate-automation

@@ -3,10 +3,8 @@
  * 仅保留模块导出与接口签名。
  */
 
-
 import {identityMatches,requirePayeeIdentity} from './member-identity.mjs';
 import {Fault,required} from './domain.mjs';
-export const cnyPayeeKinds=Object.freeze(['bank','alipay','wechat','ebpay']);
 
 function receiptImage(value){
   // 内部业务实现略

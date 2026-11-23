@@ -3,7 +3,6 @@
  * 仅保留模块导出与接口签名。
  */
 
-
 import {createHash} from 'node:crypto';
 import {TronDepositReader,TronRpcDepositReader,EthereumDepositReader} from './chain-readers.mjs';
 import {Fault} from './domain.mjs';

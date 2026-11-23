@@ -4,9 +4,5 @@
  */
 
 
-
 export class RebateBatch{
 }
-
-// Discovered route endpoints in this module (read-only contract summary):
-//   - /api/admin/operations/rebate-batch

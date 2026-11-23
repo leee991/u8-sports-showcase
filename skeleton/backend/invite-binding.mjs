@@ -3,7 +3,6 @@
  * 仅保留模块导出与接口签名。
  */
 
-
 import {createHmac,timingSafeEqual} from 'node:crypto';
 import {Fault,clean} from './domain.mjs';
 

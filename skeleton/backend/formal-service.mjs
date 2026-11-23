@@ -3,7 +3,6 @@
  * 仅保留模块导出与接口签名。
  */
 
-
 import {formalReceiptClaimed} from './receipt-claims.mjs';
 import {CashDepositRules,formalCashRecords} from './cash-deposit-rules.mjs';
 import {freshFinancialActor} from './actor-freshness.mjs';
@@ -28,17 +27,3 @@ export class FormalService{
   }
 
 }
-
-// Discovered route endpoints in this module (read-only contract summary):
-//   - /api/admin/formal
-//   - /api/admin/formal/configure
-//   - /api/admin/formal/funding
-//   - /api/admin/formal/funding-review
-//   - /api/admin/formal/order-review
-//   - /api/admin/formal/records
-//   - /api/admin/formal/sync-records
-//   - /api/member/formal
-//   - /api/member/formal/account
-//   - /api/member/formal/balance
-//   - /api/member/formal/launch
-//   - /api/member/formal/transfer

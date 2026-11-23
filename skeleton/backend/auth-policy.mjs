@@ -3,7 +3,6 @@
  * 仅保留模块导出与接口签名。
  */
 
-
 import {captchaImage} from './auth-captcha-image.mjs';
 import {createHmac,randomBytes,timingSafeEqual} from 'node:crypto';
 import {isIP} from 'node:net';

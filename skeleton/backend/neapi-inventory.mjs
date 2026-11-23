@@ -3,7 +3,6 @@
  * 仅保留模块导出与接口签名。
  */
 
-
 import {createHash} from 'node:crypto';
 import {NEAPI_CAPABILITIES} from './neapi-capabilities.mjs';
 import {suggestNeMappings} from './neapi-readonly.mjs';

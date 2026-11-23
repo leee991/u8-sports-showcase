@@ -3,7 +3,6 @@
  * 仅保留模块导出与接口签名。
  */
 
-
 import {manualAdjustmentReportView} from './manual-adjustment-report.mjs';
 import {NEAPI_RATE_NAMES} from './neapi-cost-rates.mjs';
 
