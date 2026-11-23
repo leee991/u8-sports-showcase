@@ -1,0 +1,94 @@
+name: u8-play-mjhl2
+services:
+  mysql:
+    image: mysql:5.7
+    restart: unless-stopped
+    command: ["--character-set-server=utf8mb4", "--sql-mode=NO_ENGINE_SUBSTITUTION", "--innodb-flush-log-at-trx-commit=1"]
+    environment:
+      MYSQL_ROOT_PASSWORD: CHANGE_ME
+      MYSQL_DATABASE: lhj
+      MYSQL_USER: u8games
+      MYSQL_PASSWORD: CHANGE_ME
+    volumes:
+      - /var/lib/u8-games/play-mjhl2-mysql-r1:/var/lib/mysql
+      - /opt/u8-games/releases/20261023-mjhl2-r1/init:/docker-entrypoint-initdb.d:ro
+    healthcheck:
+      test: ["CMD-SHELL", "MYSQL_PWD=$$MYSQL_ROOT_PASSWORD mysqladmin -uroot ping --silent"]
+      interval: 5s
+      retries: 30
+    networks: [private]
+    mem_limit: 512m
+    logging: &logs
+      driver: json-file
+      options: {max-size: "5m", max-file: "2"}
+  api-proxy:
+    image: nginx:stable
+    restart: unless-stopped
+    volumes:
+      - /opt/u8-games/releases/20261023-mjhl2-r1/api-proxy.conf:/etc/nginx/conf.d/default.conf:ro
+      - /etc/ssl/certs/ca-certificates.crt:/etc/ssl/certs/ca-certificates.crt:ro
+    read_only: true
+    tmpfs: [/var/cache/nginx, /var/run, /tmp]
+    networks: [private, frontend]
+    mem_limit: 64m
+    logging: *logs
+  engine:
+    image: u8-kg-php:legacy
+    restart: unless-stopped
+    depends_on:
+      mysql: {condition: service_healthy}
+      api-proxy: {condition: service_started}
+    working_dir: /srv/app/game/MJHL
+    command: ["php", "start.php", "start"]
+    environment: &engine-env
+      KG_DB_PASSWORD: CHANGE_ME
+      U8_KG_MODE: virtual
+      U8_KG_SECRET: CHANGE_ME
+      U8_KG_ORIGIN: https://u8-platform.example.com
+      U8_KG_CALLBACK: http://api-proxy:8080/api/integrations/kg
+      U8_KG_CALLBACK_ORIGIN: https://u8-platform.example.com
+    volumes:
+      - /opt/u8-games/releases/20261023-mjhl2-r1/app:/srv/app:ro
+    read_only: true
+    tmpfs: [/tmp]
+    cap_drop: [ALL]
+    security_opt: ["no-new-privileges:true"]
+    pids_limit: 64
+    mem_limit: 512m
+    cpus: 2
+    networks: [private]
+    logging: *logs
+  entry:
+    image: u8-kg-php:legacy
+    restart: unless-stopped
+    depends_on:
+      mysql: {condition: service_healthy}
+    command: ["php-fpm", "-F", "-y", "/srv/entry-fpm.conf"]
+    environment: *engine-env
+    volumes:
+      - /opt/u8-games/releases/20261023-mjhl2-r1/app:/srv/app:ro
+      - /opt/u8-games/releases/20261023-mjhl2-r1/entry-fpm.conf:/srv/entry-fpm.conf:ro
+    read_only: true
+    tmpfs: [/tmp]
+    cap_drop: [ALL]
+    cap_add: [SETUID, SETGID]
+    security_opt: ["no-new-privileges:true"]
+    mem_limit: 128m
+    networks: [private]
+    logging: *logs
+  web:
+    image: nginx:stable
+    restart: unless-stopped
+    depends_on: [engine, entry]
+    ports: ["127.0.0.1:8419:80"]
+    volumes:
+      - /opt/u8-games/releases/20261023-mjhl2-r1/app/web-mobile:/usr/share/nginx/html:ro
+      - /opt/u8-games/releases/20261023-mjhl2-r1/nginx.conf:/etc/nginx/conf.d/default.conf:ro
+    read_only: true
+    tmpfs: [/var/cache/nginx, /var/run, /tmp]
+    mem_limit: 128m
+    networks: [private, frontend]
+    logging: *logs
+networks:
+  private: {internal: true}
+  frontend: {}

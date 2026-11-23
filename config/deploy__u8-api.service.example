@@ -1,0 +1,28 @@
+[Unit]
+Description=U8 member and operations API
+After=network.target
+
+[Service]
+Type=simple
+User=u8-api
+Group=u8-api
+WorkingDirectory=/opt/u8-api/current
+Environment=NODE_ENV=production
+EnvironmentFile=/etc/u8-api.env
+ExecStart=/opt/node-v24.19.0-linux-x64/bin/node backend/server.mjs
+Restart=on-failure
+RestartSec=3
+TimeoutStopSec=20
+UMask=0077
+NoNewPrivileges=true
+PrivateTmp=true
+ProtectSystem=strict
+ProtectHome=true
+ReadWritePaths=/var/lib/u8-api
+RestrictAddressFamilies=AF_UNIX AF_INET AF_INET6
+LimitNOFILE=8192
+MemoryMax=512M
+TasksMax=64
+
+[Install]
+WantedBy=multi-user.target

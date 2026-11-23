@@ -1,0 +1,15 @@
+# Only public images/fonts; exact immutable release pin. Never include HTML, JS or APIs.
+# Default empty disables any packaged cache automatically after an unverified website release.
+map $realpath_root $u8_apk_pack_token {
+    default "";
+    "~^/var/www/u8cny/releases/20261029\-free\-exchange\-v111$" "a68a6caf50de3bd70e821a6d5905f97b58b5ca553d4381dd9752c6a63a964312";
+    "~^/var/www/u8cny/releases/20261029\-three\-decimals\-v112$" "a68a6caf50de3bd70e821a6d5905f97b58b5ca553d4381dd9752c6a63a964312";
+    "~^/var/www/u8cny/releases/20261029\-download\-v113$" "a68a6caf50de3bd70e821a6d5905f97b58b5ca553d4381dd9752c6a63a964312";
+    "~^/var/www/u8cny/releases/20261029\-bet\-detail\-v114$" "a68a6caf50de3bd70e821a6d5905f97b58b5ca553d4381dd9752c6a63a964312";
+    "~^/var/www/u8cny/releases/20261029\-merchant\-balance\-v122$" "a68a6caf50de3bd70e821a6d5905f97b58b5ca553d4381dd9752c6a63a964312";
+    "~^/var/www/u8cny/releases/20261029\-bonus\-member\-v123$" "a68a6caf50de3bd70e821a6d5905f97b58b5ca553d4381dd9752c6a63a964312";
+    "~^/var/www/u8cny/releases/20261030\-gift\-records\-v124$" "a68a6caf50de3bd70e821a6d5905f97b58b5ca553d4381dd9752c6a63a964312";
+    "~^/var/www/u8cny/releases/20261030\-apk\-brand\-v125$" "a68a6caf50de3bd70e821a6d5905f97b58b5ca553d4381dd9752c6a63a964312";
+    "~^/var/www/u8cny/releases/20261030\-agent\-profit\-v126$" "a68a6caf50de3bd70e821a6d5905f97b58b5ca553d4381dd9752c6a63a964312";
+    "~^/var/www/u8cny/releases/20261101\-chain\-tail\-v150$" "a68a6caf50de3bd70e821a6d5905f97b58b5ca553d4381dd9752c6a63a964312";
+}

@@ -1,0 +1,10 @@
+server {
+    listen 80;
+    listen [::]:80;
+    server_name u8-platform.example.com u8-platform.example.com u8-platform.example.com;
+    root /var/www/u8cny/current;
+    index index.html;
+    location ^~ /.well-known/acme-challenge/ { root /var/www/acme; }
+    location = /healthz { access_log off; default_type text/plain; return 200 'ok\n'; }
+    location / { try_files $uri $uri/ /index.html; }
+}

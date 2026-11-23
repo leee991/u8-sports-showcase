@@ -1,0 +1,20 @@
+# U8 public static performance variants, 2026-10-28. No API or user data caching.
+map $http_accept $u8_perf_accept_webp {
+    default 0;
+    "~*(^|,)\s*image/webp\s*;\s*q=0(?:\.0+)?\s*(,|$)" 0;
+    "~*(^|,)\s*image/webp\s*(?:;\s*q=(?:1(?:\.0{0,3})?|0?\.[0-9]{1,3}))?\s*(,|$)" 1;
+}
+map "$realpath_root|$uri|$u8_perf_accept_webp" $u8_perf_image_path {
+    default "";
+    "~^/var/www/u8cny/releases/20261101\-chain\-tail\-v150\|/assets/brand/home\-mobile\-u8cny\.png\|1$" "/assets/performance/home-mobile-u8cny-5cfa141f5c31.webp";
+    "~^/var/www/u8cny/releases/20261101\-chain\-tail\-v150\|/assets/brand/home\-desktop\-u8cny\.png\|1$" "/assets/performance/home-desktop-u8cny-adfc70822e00.webp";
+    "~^/var/www/u8cny/releases/20261101\-chain\-tail\-v150\|/assets/brand/announcement\-88\-095474fcb147\.png\|1$" "/assets/performance/announcement-88-095474fcb147-bc6cd611ff55.webp";
+    "~^/var/www/u8cny/releases/20261101\-chain\-tail\-v150\|/assets/brand/first\-deposit\-38\.png\|1$" "/assets/performance/first-deposit-38-a55f74882cae.webp";
+    "~^/var/www/u8cny/releases/20261101\-chain\-tail\-v150\|/assets/brand/bbin\-lottery\.png\|1$" "/assets/performance/bbin-lottery-bcde2494603d.webp";
+    "~^/var/www/u8cny/releases/20261101\-chain\-tail\-v150\|/assets/brand/auth\-promo\-u8cny\.png\|1$" "/assets/performance/auth-promo-u8cny-9ecca47018f8.webp";
+    "~^/var/www/u8cny/releases/20261101\-chain\-tail\-v150\|/assets/brand/withdrawal\-promotion\-88\-a858f41c17e0\.png\|1$" "/assets/performance/withdrawal-promotion-88-a858f41c17e0-fcaaf3a32f96.webp";
+}
+map $realpath_root $u8_perf_vary {
+    default "";
+    "~^/var/www/u8cny/releases/20261101\-chain\-tail\-v150$" "Accept";
+}

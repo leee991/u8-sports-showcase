@@ -1,0 +1,7 @@
+# HTTP context. Only login/register/challenge routes use these zones.
+limit_req_zone $binary_remote_addr zone=u8_login_ip_v1:10m rate=30r/m;
+limit_req_zone $server_name zone=u8_login_total_v1:1m rate=20r/s;
+client_header_timeout 10s;
+client_body_timeout 15s;
+send_timeout 30s;
+keepalive_timeout 30s;

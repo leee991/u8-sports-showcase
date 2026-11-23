@@ -1,0 +1,38 @@
+location = /kefu-v2 { return 308 https://u8-platform.example.com/kefu-v2/; }
+# Same-origin visitor-only embed on each owned U8 hostname. Staff stays canonical.
+location ^~ /kefu-v2/embed/ {
+    if ($uri !~ "^/kefu-v2/embed/(client\.html|api\.js|client\.js|styles\.css|u8-theme\.css|u8-logo\.png|api/(visitor(/.*)?|attachments/[a-zA-Z0-9_-]+|health))$") { return 404; }
+    client_max_body_size 8m;
+    client_body_timeout 90s;
+    proxy_pass http://127.0.0.1:4181/;
+    proxy_http_version 1.1;
+    proxy_set_header Host $host;
+    proxy_set_header X-Real-IP $remote_addr;
+    proxy_set_header X-Forwarded-Proto $scheme;
+    proxy_connect_timeout 3s;
+    proxy_read_timeout 100s;
+    proxy_send_timeout 100s;
+    proxy_buffering off;
+    add_header X-Content-Type-Options nosniff always;
+    add_header Referrer-Policy same-origin always;
+    add_header Strict-Transport-Security 'max-age=31536000' always;
+}
+location ^~ /kefu-v2/ {
+    if ($host != u8-platform.example.com) { return 308 https://u8-platform.example.com$request_uri; }
+    client_max_body_size 8m;
+    client_body_timeout 90s;
+    proxy_pass http://127.0.0.1:4181/;
+    proxy_http_version 1.1;
+    proxy_set_header Host $host;
+    proxy_set_header X-Real-IP $remote_addr;
+    proxy_set_header X-Forwarded-Proto $scheme;
+    proxy_connect_timeout 3s;
+    proxy_read_timeout 100s;
+    proxy_send_timeout 100s;
+    proxy_buffering off;
+    # Use the support application's own stricter policy without duplicate,
+    # contradictory parent-page form/blob-image restrictions.
+    add_header X-Content-Type-Options nosniff always;
+    add_header Referrer-Policy same-origin always;
+    add_header Strict-Transport-Security 'max-age=31536000' always;
+}

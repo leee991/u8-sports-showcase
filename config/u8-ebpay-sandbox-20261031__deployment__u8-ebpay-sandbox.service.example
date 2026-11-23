@@ -1,0 +1,32 @@
+[Unit]
+Description=Isolated EBPay sandbox callback receiver (no production wallet access)
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=simple
+DynamicUser=yes
+User=u8-ebpay-sandbox
+StateDirectory=u8-ebpay-sandbox
+StateDirectoryMode=0700
+WorkingDirectory=/opt/u8-ebpay-sandbox-20261031/app
+LoadCredential=merchant-key:/opt/u8-ebpay-sandbox-20261031/private/merchant-key
+ExecStart=/usr/bin/python3 -u /opt/u8-ebpay-sandbox-20261031/app/sandbox.py --database /var/lib/u8-ebpay-sandbox/sandbox.sqlite --port 20191
+Restart=on-failure
+RestartSec=3
+UMask=0077
+NoNewPrivileges=yes
+PrivateTmp=yes
+ProtectSystem=strict
+ProtectHome=yes
+ProtectKernelTunables=yes
+ProtectKernelModules=yes
+ProtectControlGroups=yes
+RestrictSUIDSGID=yes
+RestrictAddressFamilies=AF_INET AF_INET6 AF_UNIX
+InaccessiblePaths=-/var/lib/u8-api -/var/lib/u8-formal -/etc/u8-formal-config.json
+MemoryMax=128M
+TasksMax=32
+
+[Install]
+WantedBy=multi-user.target
